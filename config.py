@@ -1,0 +1,3 @@
+OLLAMA_BASE_URL = "http://localhost:11434"
+DEFAULT_MODEL = "qwen3:1.7b"
+MAX_ITERATIONS = 10
