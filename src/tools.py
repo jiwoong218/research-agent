@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import inspect
 from typing import Any, Callable
 from datetime import datetime
+from ddgs import DDGS
 
 
 class Tool:
@@ -45,10 +46,11 @@ class WebSearch(Tool):
         )
 
     def _search(self, query: str) -> list[dict]:
+        ddgs = DDGS()
+        results = ddgs.text(query, max_results=10)
         return [
-            {
-                "error": "Web search temporarily unavailable. Try using web_fetch with a specific URL."
-            }
+            {"title": r["title"], "url": r["href"], "snippet": r["body"]}
+            for r in results
         ]
 
 

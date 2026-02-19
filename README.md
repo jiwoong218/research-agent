@@ -40,12 +40,12 @@ research-agent/
 | `file_read` | Read local files |
 | `file_write` | Write to local files |
 | `web_fetch` | Fetch webpage content |
+| `web_search` | DuckDuckGo web search |
 
 ### Planned
 
 | Feature | Description |
 |---------|-------------|
-| Web Search | DuckDuckGo / SerpAPI integration |
 | Long-term Memory | SQLite-based persistent storage |
 | Research Workflow | Multi-step research (search → gather → synthesize) |
 | Error Handling | Timeouts, retries, graceful failures |
@@ -75,6 +75,9 @@ Example interactions:
 ```
 > What time is it now?
 The current time is 2026-02-19 12:53:28.
+
+> Search for Python tutorials
+[Returns search results from DuckDuckGo]
 
 > Write "Hello World" to /tmp/test.txt
 Successfully wrote to /tmp/test.txt
@@ -116,4 +119,3 @@ class MyTool(Tool):
 
 - qwen3:1.7b is lightweight but slower with tool calls (~20s)
 - Consider qwen3:4b for faster responses
-- Web search currently disabled (API unavailable)
